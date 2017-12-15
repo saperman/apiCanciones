@@ -45,9 +45,9 @@ class Controller_ControladorUser extends Controller_Rest
 
     public function get_users()
     {
-        $headers = apache_request_headers();
-        $auth = json_decode($this->authenticate($headers), true);
-        if($auth['bool']){
+        // $headers = apache_request_headers();
+        // $auth = json_decode($this->authenticate($headers), true);
+        // if($auth['bool']){
             $users = Model_Users::find('all');
 
             return $this->response(
@@ -55,16 +55,15 @@ class Controller_ControladorUser extends Controller_Rest
                     'code' => 200,
                     'message' => 'correcto auth',
                     'data' => $users
-                )
-            );
-        }else{
-            return $this->response(
-                array(
-                    'code' => 401,
-                    'message' => 'incorrecto auth'
-                )
-            );
-        }
+                ));
+        // }else{
+        //     return $this->response(
+        //         array(
+        //             'code' => 401,
+        //             'message' => 'incorrecto auth'
+        //         )
+        //     );
+        // }
     	
 
     }
@@ -121,38 +120,39 @@ class Controller_ControladorUser extends Controller_Rest
         }
     }
     
-    private function authenticate($headersRequest){
-        $headers = $headersRequest;
-        if(isset($headers['Authorization']) )
-        {
-            $token = $headers['Authorization'];
-            if($decode = JWT::decode($token, self::$secret_key, array('HS256')))
-            {
-                 $decode_array = (array) $decode;
-                var_dump($decode_array['userName']);
-                $json = $this->response(array(
-                        'code' => 200,
-                        'message' => 'autenticacion correcta',
-                        'bool' => true
-                    ));
-                return $json;
-            }else{
-                $json = $this->response(array(
-                    'code' => 401,
-                    'message' => 'autenticacion incorrecta',
-                    'bool' => false,
-                    'data' => $decode
-                ));
-                return $json;
-            }
-         }
-    else{
-        $json = $this->response(array(
-            'code' => 403,
-            'bool' => false,
-            'message' => 'token inexsitente'
-        ));
-        return $json;
-        }
-    }
+    // private function authenticate($headersRequest){
+    //     $headers = $headersRequest;
+    //     if(isset($headers['Authorization']) )
+    //     {
+    //         $token = $headers['Authorization'];
+    //         if($decode = JWT::decode($token, self::$secret_key, array('HS256')))
+    //         {
+    //              $decode_array = (array) $decode;
+    //             var_dump($decode_array['userName']);
+    //             $json = $this->response(array(
+    //                     'code' => 200,
+    //                     'message' => 'autenticacion correcta',
+    //                     'bool' => true
+    //                 ));
+    //             return $json;
+    //         }else{
+    //             $json = $this->response(array(
+    //                 'code' => 401,
+    //                 'message' => 'autenticacion incorrecta',
+    //                 'bool' => false,
+    //                 'data' => $decode
+    //             ));
+    //             return $json;
+    //         }
+    //     }
+    //     else{
+    //         $json = $this->response(array(
+    //             'code' => 403,
+    //             'bool' => false,
+    //             'message' => 'token inexsitente'
+    //         ));
+    //         return $json;
+    //     }
+    // }
 }
+

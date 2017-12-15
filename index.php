@@ -20,7 +20,7 @@
         if(passwordInput.value != "" && userNameInput.value != "")
         {
           var params = "password="+passwordInput.value+"&userName="+userNameInput.value;
-          var ajax_url = "http://localhost:8888/UsuariosBueno/fuelphp/public/ControladorUser/create.json";
+          var ajax_url = "http://localhost:8888/APISONGS/fuelphp/public/ControladorUser/create.json";
           var ajax_request = new XMLHttpRequest();
           
           ajax_request.onreadystatechange = function(){
@@ -31,9 +31,9 @@
             } else {
               // aun no esta listo
             }
-          }ontent-type
+          }
           ajax_request.open("POST", ajax_url, true);
-          ajax_request.setRequestHeader("C", "application/x-www-form-urlencoded");
+          ajax_request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
           //Enviamos la solicitud junto con los parámetros
           ajax_request.send(params);
         }else{
@@ -45,7 +45,7 @@
 
       function borrarUser(id){
         var params = "id="+id;
-        var ajax_url = "http://localhost:8888/UsuariosBueno/fuelphp/public/ControladorUser/delete.json";
+        var ajax_url = "http://localhost:8888/APISONGS/fuelphp/public/ControladorUser/delete.json";
         var ajax_request = new XMLHttpRequest();
 
         ajax_request.onreadystatechange = function(){
@@ -71,7 +71,7 @@
         if(passwordInput.value != "" && userNameInput.value != "")
         {
           var params = "password="+passwordInput.value+"&userName="+userNameInput.value;
-          var ajax_url = "http://localhost:8888/UsuariosBueno/fuelphp/public/ControladorUser/login.json";
+          var ajax_url = "http://localhost:8888/APISONGS/fuelphp/public/ControladorUser/login.json";
           var ajax_request = new XMLHttpRequest();
           
           ajax_request.onreadystatechange = function(){
@@ -81,7 +81,7 @@
               window.alert(response.message);
               if(response.data){
                 window.localStorage.setItem('token', response.data);
-                window.location.assign("http://localhost:8888/UsuariosBueno/userLoggedPage.php");
+                window.location.assign("http://localhost:8888/APISONGS/userLoggedPage.php");
               }
             } else {
               // aun no esta listo

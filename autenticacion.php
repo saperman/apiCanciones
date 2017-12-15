@@ -16,7 +16,7 @@
     <script type="text/javascript">
       function Autenticar(){
         if(localStorage.getItem('token') != null){
-          var ajax_url = "http://localhost:8888/UsuariosBueno/fuelphp/public/ControladorUser/authenticate.json";
+          var ajax_url = "http://localhost:8888/APISONGS/fuelphp/public/ControladorUser/authenticate.json";
           var ajax_request = new XMLHttpRequest();
          
           ajax_request.onreadystatechange = function(){

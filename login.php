@@ -20,7 +20,7 @@
         if(passwordInput.value != "" && userNameInput.value != "")
         {
           var params = "password="+passwordInput.value+"&userName="+userNameInput.value;
-          var ajax_url = "http://localhost:8888/UsuariosBueno/fuelphp/public/ControladorUser/login.json";
+          var ajax_url = "http://localhost:8888/APISONGS/fuelphp/public/ControladorUser/login.json";
           var ajax_request = new XMLHttpRequest();
           
           ajax_request.onreadystatechange = function(){

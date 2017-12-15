@@ -16,7 +16,7 @@
     <script type="text/javascript">
       function borrarUser(id){
         var params = "id="+id;
-        var ajax_url = "http://localhost:8888/UsuariosBueno/fuelphp/public/ControladorUser/delete.json";
+        var ajax_url = "http://localhost:8888/APISONGS/fuelphp/public/ControladorUser/delete.json";
         var ajax_request = new XMLHttpRequest();
 
         ajax_request.onreadystatechange = function(){
@@ -36,7 +36,7 @@
       }
       function getUsers(){
         var tabla = document.getElementById("tableBody");
-        var ajax_url = "http://localhost:8888/UsuariosBueno/fuelphp/public/ControladorUser/users.json";
+        var ajax_url = "http://localhost:8888/APISONGS/fuelphp/public/ControladorUser/users.json";
         var ajax_request = new XMLHttpRequest();
 
         ajax_request.onreadystatechange = function(){
@@ -59,7 +59,7 @@
       function closeSession(){
 
         window.localStorage.setItem('token', "");
-        window.location.assign("http://localhost:8888/UsuariosBueno/");
+        window.location.assign("http://localhost:8888/APISONGS/");
       }
     </script>
   </head>
